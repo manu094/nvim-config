@@ -47,13 +47,13 @@ return packer.startup(function(use)
     "wbthomason/packer.nvim", -- Have packer manage itself
     "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
     "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
-    "rstacruz/vim-closer", -- bracket/parenthesis completion
     {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}, -- some async stuff
     {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}, -- Previews markdown in browser
     "andymass/vim-matchup", -- enhances the "%" command
     {"akinsho/toggleterm.nvim", tag = '*', config = function()
       require("toggleterm").setup()
     end},
+    "windwp/nvim-autopairs",
 
     -- Enhanced motions
     "wellle/targets.vim", -- vim plugin that provides additional text objects
@@ -95,6 +95,9 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     "p00f/nvim-ts-rainbow",
     "nvim-treesitter/playground",
+
+    -- Git
+    "lewis6991/gitsigns.nvim",
   }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
