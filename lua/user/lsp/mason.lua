@@ -7,16 +7,16 @@ local servers = {
 	-- "bashls",
 	"jsonls",
 	-- "yamlls",
-  "clangd"
+  "clangd",
 }
 
 local settings = {
 	ui = {
 		border = "none",
 		icons = {
-			package_installed = "",
-			package_pending = "󰥔",
-			package_uninstalled = "󰜺",
+			package_installed = "",
+			package_pending = "",
+			package_uninstalled = "",
 		},
 	},
 	log_level = vim.log.levels.INFO,
@@ -48,6 +48,5 @@ for _, server in pairs(servers) do
 	if require_ok then
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
 	end
-
 	lspconfig[server].setup(opts)
 end

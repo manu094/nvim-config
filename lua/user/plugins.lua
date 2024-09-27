@@ -51,10 +51,20 @@ return packer.startup(function(use)
     {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}, -- some async stuff
     {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}, -- Previews markdown in browser
     "andymass/vim-matchup", -- enhances the "%" command
+    {"akinsho/toggleterm.nvim", tag = '*', config = function()
+      require("toggleterm").setup()
+    end},
+
+    -- Enhanced motions
+    "wellle/targets.vim", -- vim plugin that provides additional text objects
 
     -- Colorschemes
     "folke/tokyonight.nvim", -- really cool colorscheme, works with most plugins
     "lunarvim/colorschemes", -- a bunch of colorschemes
+    "sainnhe/everforest", -- this has to be my favorite
+    "sainnhe/gruvbox-material", -- incredibly beautiful
+    "AlexvZyl/nordic.nvim", -- trying things out
+    "rebelot/kanagawa.nvim", -- Top rated
 
     --cmp plugins
     "hrsh7th/nvim-cmp",
@@ -69,12 +79,22 @@ return packer.startup(function(use)
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
 
-    --lsp
+    -- LSP
     "neovim/nvim-lspconfig", -- enable lsp
     "williamboman/mason.nvim", -- simple to use language server installer
     "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
     "jose-elias-alvarez/null-ls.nvim", -- LSP diagnostics and code actions
-    "p00f/clangd_extensions.nvim" -- c/c++ LSP
+    "p00f/clangd_extensions.nvim", -- c/c++ LSP
+
+    -- Telescope
+    "nvim-telescope/telescope.nvim",
+    "nvim-telescope/telescope-media-files.nvim",
+    "BurntSushi/ripgrep",
+
+    -- Treesitter
+    "nvim-treesitter/nvim-treesitter",
+    "p00f/nvim-ts-rainbow",
+    "nvim-treesitter/playground",
   }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

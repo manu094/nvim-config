@@ -2,6 +2,7 @@ local M = {}
 
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_cmp_ok then
+	print("Couldn't find cmp_nvim_lsp.")
 	return
 end
 
@@ -23,7 +24,7 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = true, -- disable virtual text
+		virtual_text = false, -- disable virtual text
 		signs = {
 			active = signs, -- show signs
 		},
