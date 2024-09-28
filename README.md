@@ -1,4 +1,5 @@
-My tailored Nvim config
+My tailored Nvim config.
+
 I joined the Nvim train pretty lately, so there is not an ounce of vimscript in this. Lua ftw!
 
 The philosophy is that init.lua is only used as a way to require sub-files dependencies to reduce clutter.
