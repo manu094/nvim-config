@@ -54,6 +54,7 @@ return packer.startup(function(use)
       require("toggleterm").setup()
     end},
     "windwp/nvim-autopairs",
+    "folke/which-key.nvim",
 
     -- Enhanced motions
     "wellle/targets.vim", -- vim plugin that provides additional text objects

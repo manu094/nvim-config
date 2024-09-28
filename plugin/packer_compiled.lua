@@ -260,6 +260,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/manu/.local/share/nvim/site/pack/packer/start/vim-matchup",
     url = "https://github.com/andymass/vim-matchup"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/home/manu/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
