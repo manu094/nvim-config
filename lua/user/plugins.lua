@@ -55,6 +55,9 @@ return packer.startup(function(use)
     end},
     "windwp/nvim-autopairs",
     "folke/which-key.nvim",
+    "echasnovski/mini.icons",
+    "nvim-tree/nvim-web-devicons",
+    {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'},
 
     -- Enhanced motions
     "wellle/targets.vim", -- vim plugin that provides additional text objects

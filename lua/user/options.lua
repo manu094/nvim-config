@@ -25,7 +25,7 @@ local options = {
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true,                        -- convert tabs to spaces
   shiftwidth = 2,                          -- the number of spaces inserted for each indentation
-  tabstop = 2,                             -- insert 2 spaces for a tab
+  tabstop = 4,                             -- insert 2 spaces for a tab
   list = true,
   listchars = "tab:> ,trail:‧,nbsp:+",
   cursorline = true,                       -- highlight the current line
@@ -39,7 +39,11 @@ local options = {
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   laststatus = 0,
-  foldmethod = "indent",
+  --foldmethod = "indent",
+  foldcolumn = "1",
+  foldlevel = 99,
+  foldlevelstart = 99,
+  foldenable = true,
   timeout = true,
 }
 vim.opt.shortmess:append "c"
@@ -52,4 +56,4 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-vim.cmd "set foldcolumn=4"
+--vim.cmd "set foldcolumn=4"

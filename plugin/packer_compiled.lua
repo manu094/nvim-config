@@ -162,6 +162,11 @@ _G.packer_plugins = {
     path = "/home/manu/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["mini.icons"] = {
+    loaded = true,
+    path = "/home/manu/.local/share/nvim/site/pack/packer/start/mini.icons",
+    url = "https://github.com/echasnovski/mini.icons"
+  },
   ["nordic.nvim"] = {
     loaded = true,
     path = "/home/manu/.local/share/nvim/site/pack/packer/start/nordic.nvim",
@@ -197,6 +202,16 @@ _G.packer_plugins = {
     path = "/home/manu/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
     url = "https://github.com/p00f/nvim-ts-rainbow"
   },
+  ["nvim-ufo"] = {
+    loaded = true,
+    path = "/home/manu/.local/share/nvim/site/pack/packer/start/nvim-ufo",
+    url = "https://github.com/kevinhwang91/nvim-ufo"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/manu/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/manu/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -216,6 +231,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/manu/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["promise-async"] = {
+    loaded = true,
+    path = "/home/manu/.local/share/nvim/site/pack/packer/start/promise-async",
+    url = "https://github.com/kevinhwang91/promise-async"
   },
   ripgrep = {
     loaded = true,
