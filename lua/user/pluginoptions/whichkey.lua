@@ -87,6 +87,7 @@ wk.add({
 	{ "<leader>r", group = "Run options...", icon = "" },
 	{
 		"<leader>rc",
+        -- this option specifies what is run upon using the ":make" command.
 		":set makeprg=gcc\\ %\\ -o\\ %<\\ \\&\\&\\ ./%< <CR>",
 		desc = "Compile C",
 		icon = "",
