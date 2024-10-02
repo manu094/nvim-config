@@ -79,27 +79,27 @@ wk.add({
 -- Run code
 wk.add({
 	{
-		"<leader>R",
+		"<leader>r",
 		":w<CR>:make<CR>",
 		desc = "Compile and Run",
 		icon = "",
 	},
-	{ "<leader>r", group = "Run options...", icon = "" },
+	{ "<leader>R", group = "Run options...", icon = "" },
 	{
-		"<leader>rc",
+		"<leader>Rc",
         -- this option specifies what is run upon using the ":make" command.
 		":set makeprg=gcc\\ %\\ -o\\ %<\\ \\&\\&\\ ./%< <CR>",
 		desc = "Compile C",
 		icon = "",
 	},
 	{
-		"<leader>rn",
+		"<leader>Rn",
 		":cnext<CR>",
 		desc = "Next Error",
 		icon = "󰼧",
 	},
 	{
-		"<leader>rp",
+		"<leader>Rp",
 		":cprev<CR>",
 		desc = "Previous Error",
 		icon = "󰼨",
