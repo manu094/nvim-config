@@ -46,7 +46,7 @@ local options = {
   foldenable = true,
   timeout = true,
   autowrite = true,
-  makeprg = "gcc % -o %< && ./%<"
+  makeprg = "gcc % -o %<"
 }
 vim.opt.shortmess:append "c"
 

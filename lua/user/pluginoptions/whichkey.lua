@@ -74,22 +74,47 @@ wk.add({
 		mode = "n",
 		icon = "󰙅",
 	},
+    -- Quick rundown of terminal mode mapppings:
+    -- in normal mode, pressing leader + t opens the terminal.
+    --  note that it is also opened from the "compile and run" command.
+    -- In general, mappings that open the terminal should enter terminal-insert
+    -- mode to save time.
+    -- to exit terminal-insert mode, press CTRL + c.
+    -- to close the terminal window, leader + c.
+    -- leader + c also works with any buffer, but it does not save it.
+	{
+		"<leader>t",
+		":term<CR>i",
+		desc = "Open Terminal",
+		icon = "",
+	},
+	{
+		"<leader>c",
+		":bd!<CR>",
+		desc = "Force Close Buffer",
+		icon = "󰅘",
+	},
+	{
+		"<C-c>",
+		"<C-\\><C-N>",
+		desc = "Exit Terminal Insert Mode",
+		mode = "t",
+	},
 })
 
 -- Run code
 wk.add({
 	{
 		"<leader>r",
-		":w<CR>:make<CR>",
-		desc = "Compile and Run",
+		":w<CR>:make<CR>:term ./%< <CR>i",
+		desc = "Compile and run",
 		icon = "",
 	},
 	{ "<leader>R", group = "Run options...", icon = "" },
 	{
 		"<leader>Rc",
-        -- this option specifies what is run upon using the ":make" command.
-		":set makeprg=gcc\\ %\\ -o\\ %<\\ \\&\\&\\ ./%< <CR>",
-		desc = "Compile C",
+		":set makeprg=gcc\\ %\\ -o\\ %< <CR>",
+		desc = "Compile in C/C++",
 		icon = "",
 	},
 	{
