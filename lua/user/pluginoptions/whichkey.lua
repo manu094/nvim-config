@@ -65,8 +65,8 @@ wk.setup({
 	},
 })
 
+-- Basic Neovim keymaps
 wk.add({
-	-- Basic Neovim keymaps
 	{
 		"<leader>e",
 		"<cmd>Lex 25<CR>",
@@ -74,7 +74,39 @@ wk.add({
 		mode = "n",
 		icon = "󰙅",
 	},
-	-- Visual changes
+})
+
+-- Run code
+wk.add({
+	{
+		"<leader>R",
+		":w<CR>:make<CR>",
+		desc = "Compile and Run",
+		icon = "",
+	},
+	{ "<leader>r", group = "Run options...", icon = "" },
+	{
+		"<leader>rc",
+		":set makeprg=gcc\\ %\\ -o\\ %<\\ \\&\\&\\ ./%< <CR>",
+		desc = "Compile C",
+		icon = "",
+	},
+	{
+		"<leader>rn",
+		":cnext<CR>",
+		desc = "Next Error",
+		icon = "󰼧",
+	},
+	{
+		"<leader>rp",
+		":cprev<CR>",
+		desc = "Previous Error",
+		icon = "󰼨",
+	},
+})
+
+-- Visual changes
+wk.add({
 	{ "<leader>a", group = "Appearance...", icon = "󱠓" },
 	{
 		"<leader>a/",
@@ -90,8 +122,10 @@ wk.add({
 		mode = "n",
 		icon = "",
 	},
+})
 
-	-- Telescope keymaps
+-- Telescope keymaps
+wk.add({
 	{ "<leader>f", group = "Find...", icon = "" },
 	{
 		"<leader>ff",
@@ -105,41 +139,45 @@ wk.add({
 		desc = "Find Text",
 		mode = "n",
 	},
+})
 
-    -- Git keymaps
-    { "<leader>g", group = "Git...", icon = "󰊢" },
-    {
-      "<leader>gs",
-      "<cmd>!git status<CR>",
-      desc = "Git Status",
-      icon = "󱖫",
-    },
-    {
-      "<leader>ga",
-      "<cmd>!git add -A<CR>",
-      desc = "Git Add All",
-      icon = "",
-    },
-    {
-      "<leader>gc",
-      ":!git commit -m ",
-      desc = "Git Commit (+ message)",
-      icon = "󰜘",
-    },
-    {
-      "<leader>gp",
-      "<cmd>!git push<CR>",
-      desc = "Git Push",
-      icon = "",
-    },
-    {
-      "<leader>gP",
-      "<cmd>!git pull<CR>",
-      desc = "Git Pull",
-      icon = "󰓂",
-    },
+-- Git keymaps
+wk.add({
+	{ "<leader>g", group = "Git...", icon = "󰊢" },
+	{
+		"<leader>gs",
+		"<cmd>!git status<CR>",
+		desc = "Git Status",
+		icon = "󱖫",
+	},
+	{
+		"<leader>ga",
+		"<cmd>!git add -A<CR>",
+		desc = "Git Add All",
+		icon = "",
+	},
+	{
+		"<leader>gc",
+		":!git commit -m ",
+		desc = "Git Commit (+ message)",
+		icon = "󰜘",
+	},
+	{
+		"<leader>gp",
+		"<cmd>!git push<CR>",
+		desc = "Git Push",
+		icon = "",
+	},
+	{
+		"<leader>gP",
+		"<cmd>!git pull<CR>",
+		desc = "Git Pull",
+		icon = "󰓂",
+	},
+})
 
-	-- LSP keymaps
+-- LSP keymaps
+wk.add({
 	{ "<leader>l", group = "LSP...", icon = "󰍉" },
 	-- { "<leader>lg", group = "Go to...", icon = "" },
 	{
@@ -173,13 +211,13 @@ wk.add({
 		icon = "󱕠",
 	},
 	{
-		"<leader>lj",
+		"<leader>ln",
 		"<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>",
 		desc = "Next Diagnostic",
 		icon = "󰼧",
 	},
 	{
-		"<leader>lk",
+		"<leader>lp",
 		"<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
 		desc = "Previous Diagnostic",
 		icon = "󰼨",
