@@ -1,8 +1,27 @@
---local colorscheme = "tokyonight-night"
---
---local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
---if not status_ok then
---  vim.notify("colorscheme " .. colorscheme .. " not found!")
---  return
---end
-vim.cmd.colorscheme "gruvbox-material"
+require("themery").setup({
+  themes = {
+    {
+      name = "Tokyonight",
+      colorscheme = "tokyonight-storm"
+    },
+    {
+      name = "Gruvbox",
+      colorscheme = "gruvbox-material",
+      before = [[
+        -- vim.opt.background = "light"
+      ]]
+    },
+    {
+      name = "Aurora",
+      colorscheme = "aurora"
+    },
+    {
+      name = "Darkplus",
+      colorscheme = "darkplus"
+    },
+    {
+      name = "Kanagawa",
+      colorscheme = "kanagawa-dragon"
+    },
+  }
+})

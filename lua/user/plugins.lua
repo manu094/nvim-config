@@ -58,6 +58,7 @@ return packer.startup(function(use)
     "echasnovski/mini.icons",
     "nvim-tree/nvim-web-devicons",
     {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'},
+    "zaldih/themery.nvim",
 
     -- Enhanced motions
     "wellle/targets.vim", -- vim plugin that provides additional text objects

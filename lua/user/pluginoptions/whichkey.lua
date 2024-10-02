@@ -24,7 +24,7 @@ wk.setup({
 	icons = {
 		breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
 		separator = "➜", -- symbol used between a key and it's label
-		group = "󰄷", -- symbol prepended to a group
+		group = "", -- symbol prepended to a group
 		ellipsis = "…",
 		-- set to false to disable all mapping icons,
 		-- both those explicitly added in a mapping
@@ -74,12 +74,21 @@ wk.add({
 		mode = "n",
 		icon = "󰙅",
 	},
+	-- Visual changes
+	{ "<leader>a", group = "Appearance...", icon = "󱠓" },
 	{
-		"<leader>/",
+		"<leader>a/",
 		"<cmd>nohlsearch<CR>",
 		desc = "Erase Highlight",
 		mode = "n",
 		icon = "󰇾",
+	},
+	{
+		"<leader>ac",
+		"<cmd>Themery<CR>",
+		desc = "Colorschemes",
+		mode = "n",
+		icon = "",
 	},
 
 	-- Telescope keymaps
@@ -97,36 +106,100 @@ wk.add({
 		mode = "n",
 	},
 
+    -- Git keymaps
+    { "<leader>g", group = "Git...", icon = "󰊢" },
+    {
+      "<leader>gs",
+      "<cmd>!git status<CR>",
+      desc = "Git Status",
+      icon = "󱖫",
+    },
+    {
+      "<leader>ga",
+      "<cmd>!git add -A<CR>",
+      desc = "Git Add All",
+      icon = "",
+    },
+    {
+      "<leader>gc",
+      ":!git commit -m ",
+      desc = "Git Commit (+ message)",
+      icon = "󰜘",
+    },
+    {
+      "<leader>gp",
+      "<cmd>!git push<CR>",
+      desc = "Git Push",
+      icon = "",
+    },
+    {
+      "<leader>gP",
+      "<cmd>!git pull<CR>",
+      desc = "Git Pull",
+      icon = "󰓂",
+    },
+
 	-- LSP keymaps
-	{ "g", group = "Go to...", icon = "" },
+	{ "<leader>l", group = "LSP...", icon = "󰍉" },
+	-- { "<leader>lg", group = "Go to...", icon = "" },
 	{
-		"gd",
+		"<leader>ld",
 		"<cmd>lua vim.lsp.buf.definition()<CR>",
 		desc = "Go to Definition",
-		icon = "󰘦",
+		icon = "󰅩",
 	},
 	{
-		"gD",
+		"<leader>lD",
 		"<cmd>lua vim.lsp.buf.declaration()<CR>",
 		desc = "Go to Declaration",
 		icon = "󰅲",
 	},
 	{
-		"gr",
+		"<leader>lr",
 		"<cmd>lua vim.lsp.buf.references()<CR>",
 		desc = "Get References",
 		icon = "",
 	},
 	{
-		"gI",
+		"<leader>lI",
 		"<cmd>lua vim.lsp.buf.implementation()<CR>",
 		desc = "Go to Implementation",
 		icon = "󰯗",
 	},
 	{
-		"gl",
+		"<leader>ll",
 		"<cmd>lua vim.diagnostic.open_float()<CR>",
 		desc = "Get Diagnostic",
-		icon = "",
+		icon = "󱕠",
+	},
+	{
+		"<leader>lj",
+		"<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>",
+		desc = "Next Diagnostic",
+		icon = "󰼧",
+	},
+	{
+		"<leader>lk",
+		"<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
+		desc = "Previous Diagnostic",
+		icon = "󰼨",
+	},
+	{
+		"<leader>lf",
+		"<cmd>lua vim.lsp.buf.format{ async = true }<cr>",
+		desc = "Format",
+		icon = "󰉼",
+	},
+	{
+		"<leader>li",
+		"<cmd>LspInfo<cr>",
+		desc = "LSP Info",
+		icon = "",
+	},
+	{
+		"<leader>la",
+		"<cmd>lua vim.lsp.buf.code_action()<cr>",
+		desc = "Code Action",
+		icon = "",
 	},
 })
