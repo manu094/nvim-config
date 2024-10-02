@@ -262,12 +262,6 @@ _G.packer_plugins = {
     path = "/home/manu/.local/share/nvim/site/pack/packer/start/themery.nvim",
     url = "https://github.com/zaldih/themery.nvim"
   },
-  ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
-    loaded = true,
-    path = "/home/manu/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
-    url = "https://github.com/akinsho/toggleterm.nvim"
-  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/home/manu/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
@@ -294,27 +288,9 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Focus', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Focus', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Focus ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'Start', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Start', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Start ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'MarkdownPreview', function(cmdargs)
           require('packer.load')({'markdown-preview.nvim'}, { cmd = 'MarkdownPreview', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -335,6 +311,20 @@ pcall(vim.api.nvim_create_user_command, 'Make', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'vim-dispatch'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('Make ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'Focus', function(cmdargs)
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Focus', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-dispatch'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Focus ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'Start', function(cmdargs)
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Start', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-dispatch'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Start ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 

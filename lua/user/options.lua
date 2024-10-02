@@ -9,7 +9,7 @@ local options = {
   ignorecase = true,                       -- ignore case in search patterns
   mouse = "",                             -- allow the mouse to be used in neovim
   pumheight = 10,                          -- pop up menu height
-  showmode = true,                        -- we don't need to see things like -- INSERT -- anymore
+  showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
   showtabline = 2,                         -- always show tabs
   smartcase = true,                        -- smart case
   smartindent = true,                      -- make indenting smarter again
@@ -24,7 +24,7 @@ local options = {
   updatetime = 300,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true,                        -- convert tabs to spaces
-  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
+  shiftwidth = 4,                          -- the number of spaces inserted for each indentation
   tabstop = 4,                             -- insert 2 spaces for a tab
   list = true,
   listchars = "tab:> ,trail:‧,nbsp:+",
@@ -46,16 +46,15 @@ local options = {
   foldenable = true,
   timeout = true,
   autowrite = true,
-  makeprg = "gcc % -o %<"
+  makeprg = "gcc % -o %<"                  -- command executed upon :make
 }
-vim.opt.shortmess:append "c"
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
 
+vim.opt.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
---vim.cmd "set foldcolumn=4"

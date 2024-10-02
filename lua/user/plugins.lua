@@ -50,9 +50,6 @@ return packer.startup(function(use)
     {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}, -- some async stuff
     {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}, -- Previews markdown in browser
     "andymass/vim-matchup", -- enhances the "%" command
-    {"akinsho/toggleterm.nvim", tag = '*', config = function()
-      require("toggleterm").setup()
-    end},
     "windwp/nvim-autopairs",
     "folke/which-key.nvim",
     "echasnovski/mini.icons",
