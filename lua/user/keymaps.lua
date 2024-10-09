@@ -41,6 +41,9 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 
+keymap("v", "hl", "<ESC>", opts)
+keymap("v", "lh", "<ESC>", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)

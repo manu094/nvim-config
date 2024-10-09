@@ -74,6 +74,16 @@ wk.add({
 		mode = "n",
 		icon = "󰙅",
 	},
+    {
+        "<leader><UP>",
+        "<C-w>+",
+        desc = "Increase Window Size",
+    },
+    {
+        "<leader><DOWN>",
+        "<C-w>-",
+        desc = "Decrease Window Size",
+    },
     -- Quick rundown of terminal mode mapppings:
     -- in normal mode, pressing leader + t opens the terminal.
     --  note that it is also opened from the "compile and run" command.
@@ -266,4 +276,19 @@ wk.add({
 		desc = "Code Action",
 		icon = "",
 	},
+})
+
+-- Debugging keymaps
+wk.add({
+    { "<leader>d", group = "Debugging...", icon = "" },
+    {
+        "<leader>db",
+        ":lua require'dap'.toggle_breakpoint()<CR>",
+        desc = "Toggle Breakpoint",
+    },
+    {
+        "<leader>dc",
+        ":lua require'dap'.continue()<CR>",
+        desc = "Continue Debugging",
+    }
 })
