@@ -39,14 +39,14 @@ local options = {
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   laststatus = 0,
-  --foldmethod = "indent",
+  --foldmethod = "indent",                 -- better setting exists as part of the UFO plugin
   foldcolumn = "1",
   foldlevel = 99,
   foldlevelstart = 99,
   foldenable = true,
   timeout = true,
   autowrite = true,
-  makeprg = "gcc % -o %<"                  -- command executed upon :make
+  makeprg = "gcc % -o %< -g"                  -- command executed upon :make
 }
 
 for k, v in pairs(options) do

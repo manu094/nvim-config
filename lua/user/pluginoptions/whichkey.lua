@@ -69,29 +69,35 @@ wk.setup({
 wk.add({
 	{
 		"<leader>e",
-		"<cmd>Lex 25<CR>",
+		"<CMD>Lex 25<CR>",
 		desc = "Open Explorer",
 		mode = "n",
 		icon = "󰙅",
 	},
-    {
-        "<leader><UP>",
-        "<C-w>+",
-        desc = "Increase Window Size",
-    },
-    {
-        "<leader><DOWN>",
-        "<C-w>-",
-        desc = "Decrease Window Size",
-    },
-    -- Quick rundown of terminal mode mapppings:
-    -- in normal mode, pressing leader + t opens the terminal.
-    --  note that it is also opened from the "compile and run" command.
-    -- In general, mappings that open the terminal should enter terminal-insert
-    -- mode to save time.
-    -- to exit terminal-insert mode, press CTRL + c.
-    -- to close the terminal window, leader + c.
-    -- leader + c also works with any buffer, but it does not save it.
+	{
+		"<leader>s",
+		":w<CR>:luafile %<CR>",
+		desc = "Source Init.lua",
+		icon = "",
+	},
+	{
+		"<leader><UP>",
+		"<C-w>+",
+		desc = "Increase Window Size",
+	},
+	{
+		"<leader><DOWN>",
+		"<C-w>-",
+		desc = "Decrease Window Size",
+	},
+	-- Quick rundown of terminal mode mapppings:
+	-- in normal mode, pressing leader + t opens the terminal.
+	--  note that it is also opened from the "compile and run" command.
+	-- In general, mappings that open the terminal should enter terminal-insert
+	-- mode to save time.
+	-- to exit terminal-insert mode, press CTRL + c.
+	-- to close the terminal window, leader + c.
+	-- leader + c also works with any buffer, but it does not save it.
 	{
 		"<leader>t",
 		":term<CR>i",
@@ -115,9 +121,17 @@ wk.add({
 -- Run code
 wk.add({
 	{
+		"<leader>c",
+		function()
+			vim.cmd("w")
+			vim.cmd("make")
+		end,
+		desc = "Compile",
+	},
+	{
 		"<leader>r",
-		":w<CR>:make<CR>:term ./%< <CR>i",
-		desc = "Compile and run",
+		":term ./%< <CR>i",
+		desc = "Run",
 		icon = "",
 	},
 	{ "<leader>R", group = "Run options...", icon = "" },
@@ -146,14 +160,14 @@ wk.add({
 	{ "<leader>a", group = "Appearance...", icon = "󱠓" },
 	{
 		"<leader>a/",
-		"<cmd>nohlsearch<CR>",
+		"<CMD>nohlsearch<CR>",
 		desc = "Erase Highlight",
 		mode = "n",
 		icon = "󰇾",
 	},
 	{
 		"<leader>ac",
-		"<cmd>Themery<CR>",
+		"<CMD>Themery<CR>",
 		desc = "Colorschemes",
 		mode = "n",
 		icon = "",
@@ -165,13 +179,13 @@ wk.add({
 	{ "<leader>f", group = "Find...", icon = "" },
 	{
 		"<leader>ff",
-		"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>",
+		"<CMD>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>",
 		desc = "Find File",
 		mode = "n",
 	},
 	{
 		"<leader>ft",
-		"<cmd>Telescope live_grep<CR>",
+		"<CMD>Telescope live_grep<CR>",
 		desc = "Find Text",
 		mode = "n",
 	},
@@ -182,13 +196,13 @@ wk.add({
 	{ "<leader>g", group = "Git...", icon = "󰊢" },
 	{
 		"<leader>gs",
-		"<cmd>!git status<CR>",
+		"<CMD>!git status<CR>",
 		desc = "Git Status",
 		icon = "󱖫",
 	},
 	{
 		"<leader>ga",
-		"<cmd>!git add -A<CR>",
+		"<CMD>!git add -A<CR>",
 		desc = "Git Add All",
 		icon = "",
 	},
@@ -200,13 +214,13 @@ wk.add({
 	},
 	{
 		"<leader>gp",
-		"<cmd>!git push<CR>",
+		"<CMD>!git push<CR>",
 		desc = "Git Push",
 		icon = "",
 	},
 	{
 		"<leader>gP",
-		"<cmd>!git pull<CR>",
+		"<CMD>!git pull<CR>",
 		desc = "Git Pull",
 		icon = "󰓂",
 	},
@@ -218,77 +232,140 @@ wk.add({
 	-- { "<leader>lg", group = "Go to...", icon = "" },
 	{
 		"<leader>ld",
-		"<cmd>lua vim.lsp.buf.definition()<CR>",
+		"<CMD>lua vim.lsp.buf.definition()<CR>",
 		desc = "Go to Definition",
 		icon = "󰅩",
 	},
 	{
 		"<leader>lD",
-		"<cmd>lua vim.lsp.buf.declaration()<CR>",
+		"<CMD>lua vim.lsp.buf.declaration()<CR>",
 		desc = "Go to Declaration",
 		icon = "󰅲",
 	},
 	{
 		"<leader>lr",
-		"<cmd>lua vim.lsp.buf.references()<CR>",
+		"<CMD>lua vim.lsp.buf.references()<CR>",
 		desc = "Get References",
 		icon = "",
 	},
 	{
 		"<leader>lI",
-		"<cmd>lua vim.lsp.buf.implementation()<CR>",
+		"<CMD>lua vim.lsp.buf.implementation()<CR>",
 		desc = "Go to Implementation",
 		icon = "󰯗",
 	},
 	{
 		"<leader>ll",
-		"<cmd>lua vim.diagnostic.open_float()<CR>",
+		"<CMD>lua vim.diagnostic.open_float()<CR>",
 		desc = "Get Diagnostic",
 		icon = "󱕠",
 	},
 	{
 		"<leader>ln",
-		"<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>",
+		"<CMD>lua vim.diagnostic.goto_next({buffer=0})<cr>",
 		desc = "Next Diagnostic",
 		icon = "󰼧",
 	},
 	{
 		"<leader>lp",
-		"<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
+		"<CMD>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
 		desc = "Previous Diagnostic",
 		icon = "󰼨",
 	},
 	{
 		"<leader>lf",
-		"<cmd>lua vim.lsp.buf.format{ async = true }<cr>",
+		"<CMD>lua vim.lsp.buf.format{ async = true }<cr>",
 		desc = "Format",
 		icon = "󰉼",
 	},
 	{
 		"<leader>li",
-		"<cmd>LspInfo<cr>",
+		"<CMD>LspInfo<cr>",
 		desc = "LSP Info",
 		icon = "",
 	},
 	{
 		"<leader>la",
-		"<cmd>lua vim.lsp.buf.code_action()<cr>",
+		"<CMD>lua vim.lsp.buf.code_action()<cr>",
 		desc = "Code Action",
 		icon = "",
 	},
 })
 
 -- Debugging keymaps
+
+local dap = require("dap")
+local dapui = require("dapui")
 wk.add({
-    { "<leader>d", group = "Debugging...", icon = "" },
-    {
-        "<leader>db",
-        ":lua require'dap'.toggle_breakpoint()<CR>",
-        desc = "Toggle Breakpoint",
-    },
-    {
-        "<leader>dc",
-        ":lua require'dap'.continue()<CR>",
-        desc = "Continue Debugging",
-    }
+	{ "<leader>d", group = "Debugging...", icon = "" },
+	{
+		"<leader>dd",
+		function()
+			dap.toggle_breakpoint()
+		end,
+		desc = "Toggle Breakpoint",
+		icon = "🔴",
+	},
+	{
+		"<leader>dc",
+		function()
+			dap.continue()
+		end,
+		desc = "Continue Debugging",
+		icon = { icon = "", color = "green" },
+	},
+	{
+		"<leader>du",
+		function()
+			dapui.toggle()
+		end,
+		desc = "Toggle Dap UI",
+		icon = "",
+	},
+	{
+		"<leader>dj",
+		function()
+			dap.step_into()
+		end,
+		desc = "Step Into",
+		icon = "",
+	},
+	{
+		"<leader>dk",
+		function()
+			dap.step_out()
+		end,
+		desc = "Step Out",
+		icon = "",
+	},
+	{
+		"<leader>dl",
+		function()
+			dap.step_over()
+		end,
+		desc = "Step Over",
+		icon = "",
+	},
+	{
+		"<leader>dh",
+		function()
+			dap.step_back()
+		end,
+		desc = "Step Back",
+		icon = "",
+	},
+	{
+		"<leader>ds",
+		function()
+			dap.repl.open()
+		end,
+		desc = "Inspect State",
+	},
+	{
+		"<leader>dp",
+		function()
+			require("dap.ui.widgets").preview()
+		end,
+		desc = "Preview Widget",
+	},
 })

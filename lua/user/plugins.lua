@@ -104,7 +104,10 @@ return packer.startup(function(use)
     -- Debugger
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",
-    "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
+    "nvim-neotest/nvim-nio",
+    "rcarriga/nvim-dap-ui",
+    "folke/neodev.nvim",
+    "theHamsta/nvim-dap-virtual-text",
   }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
