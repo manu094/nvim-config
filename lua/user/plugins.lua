@@ -67,6 +67,8 @@ return packer.startup(function(use)
     "sainnhe/gruvbox-material", -- incredibly beautiful
     "AlexvZyl/nordic.nvim", -- trying things out
     "rebelot/kanagawa.nvim", -- Top rated
+    "sontungexpt/witch",
+    "rafamadriz/neon",
 
     --cmp plugins
     "hrsh7th/nvim-cmp",
