@@ -71,17 +71,6 @@ return packer.startup(function(use)
 		"AlexvZyl/nordic.nvim", -- trying things out
 		"rebelot/kanagawa.nvim", -- Top rated
 
-<<<<<<< HEAD
-    -- Colorschemes
-    "folke/tokyonight.nvim", -- really cool colorscheme, works with most plugins
-    "lunarvim/colorschemes", -- a bunch of colorschemes
-    "sainnhe/everforest", -- this has to be my favorite
-    "sainnhe/gruvbox-material", -- incredibly beautiful
-    "AlexvZyl/nordic.nvim", -- trying things out
-    "rebelot/kanagawa.nvim", -- Top rated
-    "sontungexpt/witch",
-    "rafamadriz/neon",
-=======
 		--cmp plugins
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-buffer",
@@ -90,7 +79,6 @@ return packer.startup(function(use)
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-nvim-lua",
->>>>>>> 5fd11ad (Add multiple plugins)
 
 		--snippets
 		"L3MON4D3/LuaSnip",
