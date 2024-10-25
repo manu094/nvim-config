@@ -79,6 +79,16 @@ _G.packer_plugins = {
     path = "/home/manu094/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["actually.nvim"] = {
+    loaded = true,
+    path = "/home/manu094/.local/share/nvim/site/pack/packer/start/actually.nvim",
+    url = "https://github.com/mong8se/actually.nvim"
+  },
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/home/manu094/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    url = "https://github.com/romgrk/barbar.nvim"
+  },
   ["clangd_extensions.nvim"] = {
     loaded = true,
     path = "/home/manu094/.local/share/nvim/site/pack/packer/start/clangd_extensions.nvim",
@@ -118,6 +128,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/manu094/.local/share/nvim/site/pack/packer/start/colorschemes",
     url = "https://github.com/lunarvim/colorschemes"
+  },
+  ["dashboard-nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/manu094/.local/share/nvim/site/pack/packer/opt/dashboard-nvim",
+    url = "https://github.com/nvimdev/dashboard-nvim"
+  },
+  ["dropbar.nvim"] = {
+    loaded = true,
+    path = "/home/manu094/.local/share/nvim/site/pack/packer/start/dropbar.nvim",
+    url = "https://github.com/Bekaboo/dropbar.nvim"
   },
   everforest = {
     loaded = true,
@@ -247,6 +269,12 @@ _G.packer_plugins = {
     path = "/home/manu094/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
+  ["oil.nvim"] = {
+    config = { "\27LJ\2\nË\1\0\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\17view_options\1\0\1\16show_hidden\2\fkeymaps\1\0\2\n<M-h>\25actions.select_split\n<C-h>\1\fcolumns\1\0\3\fcolumns\0\fkeymaps\0\17view_options\0\1\2\0\0\ticon\nsetup\boil\frequire\0" },
+    loaded = true,
+    path = "/home/manu094/.local/share/nvim/site/pack/packer/start/oil.nvim",
+    url = "https://github.com/stevearc/oil.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/manu094/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -282,6 +310,11 @@ _G.packer_plugins = {
     path = "/home/manu094/.local/share/nvim/site/pack/packer/start/targets.vim",
     url = "https://github.com/wellle/targets.vim"
   },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/home/manu094/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/home/manu094/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
@@ -301,6 +334,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/manu094/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/home/manu094/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
   },
   ["vim-dispatch"] = {
     commands = { "Dispatch", "Make", "Focus", "Start" },
@@ -328,6 +366,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: oil.nvim
+time([[Config for oil.nvim]], true)
+try_loadstring("\27LJ\2\nË\1\0\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\17view_options\1\0\1\16show_hidden\2\fkeymaps\1\0\2\n<M-h>\25actions.select_split\n<C-h>\1\fcolumns\1\0\3\fcolumns\0\fkeymaps\0\17view_options\0\1\2\0\0\ticon\nsetup\boil\frequire\0", "config", "oil.nvim")
+time([[Config for oil.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -368,6 +410,13 @@ pcall(vim.api.nvim_create_user_command, 'MarkdownPreview', function(cmdargs)
       end})
 time([[Defining lazy-load commands]], false)
 
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'dashboard-nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
