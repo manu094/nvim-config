@@ -20,8 +20,13 @@ require("themery").setup({
             colorscheme = "darkplus"
         },
         {
-            name = "Kanagawa",
+            name = "Dragon",
             colorscheme = "kanagawa-dragon"
+
+        },
+        {
+            name = "Water",
+            colorscheme = "kanagawa-water",
         },
     }
 })

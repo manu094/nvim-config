@@ -119,6 +119,12 @@ return {
 
         -- Visual changes
         wk.add({
+            {
+                "<leader>z",
+                "<CMD>ZenMode<CR>",
+                desc = "Zen Mode",
+                icon = { icon = "", color = "green"},
+            },
             { "<leader>a", group = "Appearance...", icon = { icon = "󱠓", color = "pink" } },
             {
                 "<leader>a/",
@@ -157,6 +163,12 @@ return {
                     require("dropbar.api").pick()
                 end,
                 desc = "Pick in Dropbar",
+                mode = "n",
+            },
+            {
+                "<leader>fn",
+                "<CMD>Telescope notify<CR>",
+                desc = "Find Notifications",
                 mode = "n",
             },
         })

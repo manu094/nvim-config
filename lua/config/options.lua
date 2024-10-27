@@ -39,7 +39,6 @@ local options = {
     scrolloff = 10,          -- is one of my fav
     sidescrolloff = 8,
     guifont = "monospace:h17", -- the font used in graphical neovim applications
-    laststatus = 0,
     --foldmethod = "indent",                 -- better setting exists as part of the UFO plugin
     foldcolumn = "1",
     foldlevel = 99,
