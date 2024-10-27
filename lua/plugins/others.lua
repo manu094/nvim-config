@@ -49,7 +49,20 @@ return {
             "nvim-telescope/telescope-fzf-native.nvim",
         },
     },
-    "romgrk/barbar.nvim",
+    {
+        'romgrk/barbar.nvim',
+        dependencies = {
+            'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+            'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+        },
+        opts = {
+            animation = true,
+            auto_hide = false,
+            tabpages = true,
+            clickable = false,
+            insert_at_end = true,
+        },
+    },
     {
         "nvimdev/dashboard-nvim",
         event = "VimEnter",
