@@ -9,7 +9,7 @@ return {
                 -- * an absolute number of cells when > 1
                 -- * a percentage of the width / height of the editor when <= 1
                 -- * a function that returns the width or the height
-                width = 0.7, -- width of the Zen window
+                width = 0.6, -- width of the Zen window
                 height = 1,  -- height of the Zen window
                 -- by default, no options are changed for the Zen window
                 -- uncomment any of the options below, or add other vim.wo options you want to apply
@@ -91,7 +91,7 @@ return {
         "folke/twilight.nvim",
         opts = {
             dimming = {
-                alpha = 0.25, -- amount of dimming
+                alpha = 0.85, -- amount of dimming
                 -- we try to get the foreground from the highlight groups or fallback color
                 color = { "Normal", "#ffffff" },
                 term_bg = "#000000", -- if guibg=NONE, this will be used to calculate text color
