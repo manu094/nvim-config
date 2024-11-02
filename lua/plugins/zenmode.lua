@@ -78,13 +78,11 @@ return {
                 },
             },
             -- callback where you can add custom code when the Zen window opens
-            on_open = function(win)
-                local themery = require("themery")
-                themery.setThemeByName(themery.getCurrentTheme().name, true)
-            end,
+            -- on_open = function(win)
+            -- end,
             -- callback where you can add custom code when the Zen window closes
-            on_close = function()
-            end,
+            -- on_close = function()
+            -- end,
         },
     },
     {

@@ -29,6 +29,9 @@ local groups = {
     "BufferDefaultCurrentWARN",
     "DevIconDefaultCurrent",
     "debugBreakpoint",
+    "ZenBg",
+    "NormalNC",
+    "BufferCurrent",
 }
 
 for _, group in ipairs(groups) do
