@@ -12,7 +12,6 @@ local groups = {
     "LineNr",
     "CursorLineNr",
     "QuickFixLine",
-    "TabLineFill",
     "GitSignsAdd",
     "GitSignsChange",
     "GitSignsDelete",

@@ -18,6 +18,7 @@ return {
 
     -- Enhanced motions
     "wellle/targets.vim", -- Vim plugin that provides additional text objects
+    "tpope/vim-surround",
 
     -- Git
     "tpope/vim-fugitive",
@@ -52,7 +53,7 @@ return {
     {
         'romgrk/barbar.nvim',
         dependencies = {
-            'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+            'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
             'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
         },
         opts = {
