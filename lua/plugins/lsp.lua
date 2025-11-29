@@ -4,7 +4,7 @@ return {
         "neovim/nvim-lspconfig",
     },
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         config = function()
             require("mason").setup({
         ui = {
@@ -18,15 +18,10 @@ return {
         end,
     },
     {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
         dependencies = { "mason.nvim" },
         config = function()
             require("mason-lspconfig").setup()
-            require("mason-lspconfig").setup_handlers {
-                function(server_name)
-                    require("lspconfig")[server_name].setup({})
-                end,
-            }
         end
     }
 }
