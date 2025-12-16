@@ -73,14 +73,14 @@ return {
             {
                 "<leader>e",
                 "<CMD>Oil<CR>",
-                desc = "Open Explorer",
+                desc = "[E]xplorer Open",
                 mode = "n",
                 icon = { icon = "󰙅", color = "green" },
             },
             {
                 "<leader>s",
                 ":w<CR>:luafile %<CR>",
-                desc = "Source Init.lua",
+                desc = "[S]ource Init.lua",
                 icon = { icon = "", color = "orange" },
             },
             {
@@ -106,7 +106,7 @@ return {
             {
                 "<leader>t",
                 ":term<CR>i",
-                desc = "Open Terminal",
+                desc = "[T]erminal Open",
                 icon = { icon = "", color = "green" },
             },
             {
@@ -122,10 +122,10 @@ return {
             {
                 "<leader>z",
                 "<CMD>ZenMode<CR>",
-                desc = "Zen Mode",
+                desc = "[Z]en Mode",
                 icon = { icon = "", color = "green"},
             },
-            { "<leader>a", group = "Appearance...", icon = { icon = "󱠓", color = "pink" } },
+            { "<leader>a", group = "[A]ppearance...", icon = { icon = "󱠓", color = "pink" } },
             {
                 "<leader>a/",
                 "<CMD>nohlsearch<CR>",
@@ -136,7 +136,7 @@ return {
             {
                 "<leader>ac",
                 "<CMD>Themery<CR>",
-                desc = "Colorschemes",
+                desc = "[C]olorschemes",
                 mode = "n",
                 icon = { icon = "", color = "pink" },
             },
@@ -144,17 +144,17 @@ return {
 
         -- Telescope / file switching keymaps
         wk.add({
-            { "<leader>f", group = "Find...", icon = { icon = "", color = "brown" } },
+            { "<leader>f", group = "[F]ind...", icon = { icon = "", color = "brown" } },
             {
                 "<leader>ff",
                 "<CMD>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>",
-                desc = "Find File",
+                desc = "[F]ile Find",
                 mode = "n",
             },
             {
                 "<leader>ft",
                 "<CMD>Telescope live_grep<CR>",
-                desc = "Find Text",
+                desc = "[T]ext Find",
                 mode = "n",
             },
             {
@@ -162,84 +162,84 @@ return {
                 function()
                     require("dropbar.api").pick()
                 end,
-                desc = "Pick in Dropbar",
+                desc = "Pick in [D]ropbar",
                 mode = "n",
             },
             {
                 "<leader>fn",
                 "<CMD>Telescope notify<CR>",
-                desc = "Find Notifications",
+                desc = "[N]otifications Find",
                 mode = "n",
             },
         })
 
         -- Git keymaps
         wk.add({
-            { "<leader>g", group = "Git...", icon = { icon = "󰊢", color = "orange" } },
+            { "<leader>g", group = "[G]it...", icon = { icon = "󰊢", color = "orange" } },
             {
                 "<leader>gs",
                 "<CMD>Git status<CR>",
-                desc = "Git Status",
+                desc = "Git [S]tatus",
                 icon = { icon = "󱖫", color = "orange" },
             },
             {
                 "<leader>ga",
                 "<CMD>Git add -A<CR>",
-                desc = "Git Add All",
+                desc = "Git [A]dd All",
                 icon = { icon = "", color = "orange" },
             },
             {
                 "<leader>gc",
                 ":Git commit -m ",
-                desc = "Git Commit (+ message)",
+                desc = "Git [C]ommit (+ message)",
                 icon = { icon = "󰜘", color = "orange" },
             },
             {
                 "<leader>gp",
                 "<CMD>Git push<CR>",
-                desc = "Git Push",
+                desc = "Git [P]ush",
                 icon = { icon = "", color = "orange" },
             },
             {
                 "<leader>gP",
                 "<CMD>Git pull<CR>",
-                desc = "Git Pull",
+                desc = "Git [P]ull",
                 icon = { icon = "󰓂", color = "orange" },
             },
             {
                 "<leader>gb",
                 "<CMD>GitBlameToggle<CR>",
-                desc = "Toggle Git Blame",
+                desc = "Toggle Git [B]lame",
                 icon = { icon = "", color = "orange"},
             },
         })
 
         -- LSP keymaps
         wk.add({
-            { "<leader>l", group = "LSP...", icon = { icon = "󰍉", color = "teal" } },
+            { "<leader>l", group = "[L]SP...", icon = { icon = "󰍉", color = "teal" } },
             -- { "<leader>lg", group = "Go to...", icon = "" },
             {
                 "<leader>ld",
                 "<CMD>lua vim.lsp.buf.definition()<CR>",
-                desc = "Go to Definition",
+                desc = "Go to [D]efinition",
                 icon = { icon = "󰅩", color = "teal" },
             },
             {
                 "<leader>lD",
                 "<CMD>lua vim.lsp.buf.declaration()<CR>",
-                desc = "Go to Declaration",
+                desc = "Go to [D]eclaration",
                 icon = { icon = "󰅲", color = "teal" },
             },
             {
                 "<leader>lr",
                 "<CMD>lua vim.lsp.buf.references()<CR>",
-                desc = "Get References",
+                desc = "Get [R]eferences",
                 icon = { icon = "", color = "teal" },
             },
             {
                 "<leader>lI",
                 "<CMD>lua vim.lsp.buf.implementation()<CR>",
-                desc = "Go to Implementation",
+                desc = "Go to [I]mplementation",
                 icon = { icon = "󰯗", color = "teal" },
             },
             {
@@ -251,13 +251,13 @@ return {
             {
                 "<leader>ln",
                 "<CMD>lua vim.diagnostic.goto_next({buffer=0})<cr>",
-                desc = "Next Diagnostic",
+                desc = "[N]ext Diagnostic",
                 icon = { icon = "󰼧", color = "teal" },
             },
             {
                 "<leader>lp",
                 "<CMD>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
-                desc = "Previous Diagnostic",
+                desc = "[P]revious Diagnostic",
                 icon = { icon = "󰼨", color = "teal" },
             },
             {
@@ -270,19 +270,19 @@ return {
                         timeout_ms = 500,
                     })
                 end,
-                desc = "Format",
+                desc = "[F]ormat",
                 icon = { icon = "󰉼", color = "teal" },
             },
             {
                 "<leader>li",
                 "<CMD>LspInfo<cr>",
-                desc = "LSP Info",
+                desc = "LSP [I]nfo",
                 icon = { icon = "", color = "teal" },
             },
             {
                 "<leader>la",
                 "<CMD>lua vim.lsp.buf.code_action()<cr>",
-                desc = "Code Action",
+                desc = "Code [A]ction",
                 icon = { icon = "", color = "teal" },
             },
         })
@@ -369,7 +369,7 @@ return {
             {
                 "<leader>u",
                 vim.cmd.UndotreeToggle,
-                desc = "Toggle Undo Tree",
+                desc = "Toggle [U]ndo Tree",
                 mode = "n",
                 icon = { icon = "", color = "green" },
             },
@@ -377,7 +377,7 @@ return {
 
         -- Buffers keymaps
         wk.add({
-            { "<leader>b", group = "Buffers...", icon = { icon = "B", color = "red" } },
+            { "<leader>b", group = "[B]uffers...", icon = { icon = "B", color = "red" } },
             {
                 "<leader>bh",
                 "<Cmd>BufferMovePrevious<CR>",
@@ -391,19 +391,25 @@ return {
             {
                 "<leader>bp",
                 "<Cmd>BufferPin<CR>",
-                desc = "Pin Buffer",
+                desc = "[P]in Buffer",
                 icon = { icon = "", color = "grey" },
             },
             {
                 "<leader>bc",
                 "<Cmd>BufferClose<CR>",
-                desc = "Close Buffer",
+                desc = "[C]lose Buffer",
+                icon = { icon = "", color = "red" },
+            },
+            {
+                "<leader>bxc",
+                "<Cmd>BufferClose!<CR>",
+                desc = "Force Close Buffer",
                 icon = { icon = "", color = "red" },
             },
             {
                 "<leader>bC",
                 "<Cmd>BufferCloseAllButCurrentOrPinned<CR>",
-                desc = "Clean Buffers",
+                desc = "[C]lean Buffers",
                 icon = { icon = "", color = "red" },
             },
             -- Go to specific buffers
@@ -449,13 +455,39 @@ return {
             },
         })
 
+        -- Code Runner
+        wk.add({
+            { "<leader>r", group = "[R]un...", icon = { icon = ">", color = "green" } },
+            {
+                "<leader>rr",
+                ":w<CR>:RunCode<CR>",
+                desc = "Run Code",
+            },
+            {
+                "<leader>rf",
+                ":w<CR>:RunFile<CR>",
+                desc = "Run [F]ile",
+            },
+            {
+                "<leader>rp",
+                ":w<CR>:RunProject<CR>",
+                desc = "Run [P]roject",
+            },
+            {
+                "<leader>rc",
+                ":RunClose<CR>",
+                desc = "Run [C]lose",
+            },
+        })
+
+
         -- Help
         wk.add({
-            { "<leader>h", group = "help", icon = { icon = "?", color = "yellow" } },
+            { "<leader>h", group = "[H]elp", icon = { icon = "?", color = "yellow" } },
             {
                 "<leader>he",
                 ":h telescope-file-browser.actions<CR>",
-                desc = "File Explorer",
+                desc = "File [E]xplorer",
             },
         })
     end,
