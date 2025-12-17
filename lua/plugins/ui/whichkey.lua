@@ -243,21 +243,21 @@ return {
                 icon = { icon = "󰯗", color = "teal" },
             },
             {
-                "<leader>ll",
+                "<leader>ls",
                 "<CMD>lua vim.diagnostic.open_float()<CR>",
-                desc = "Get Diagnostic",
+                desc = "Get Diagno[s]tic",
                 icon = { icon = "󱕠", color = "teal" },
             },
             {
-                "<leader>ln",
-                "<CMD>lua vim.diagnostic.goto_next({buffer=0})<cr>",
-                desc = "[N]ext Diagnostic",
+                "<leader>ll",
+                "<CMD>lua vim.diagnostic.jump({count = 1})<cr>",
+                desc = "Next Diagnostic",
                 icon = { icon = "󰼧", color = "teal" },
             },
             {
-                "<leader>lp",
-                "<CMD>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
-                desc = "[P]revious Diagnostic",
+                "<leader>lh",
+                "<CMD>lua vim.diagnostic.jump({count = -1})<cr>",
+                desc = "Previous Diagnostic",
                 icon = { icon = "󰼨", color = "teal" },
             },
             {
@@ -368,7 +368,7 @@ return {
         wk.add({
             {
                 "<leader>u",
-                vim.cmd.UndotreeToggle,
+                "<Cmd>UndotreeToggle<CR>",
                 desc = "Toggle [U]ndo Tree",
                 mode = "n",
                 icon = { icon = "", color = "green" },
