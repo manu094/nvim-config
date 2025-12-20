@@ -72,8 +72,15 @@ return {
         wk.add({
             {
                 "<leader>e",
+                "<CMD>Neotree<CR>",
+                desc = "[E]xplorer Tree",
+                mode = "n",
+                icon = { icon = "󰙅", color = "green" },
+            },
+            {
+                "<leader>E",
                 "<CMD>Oil<CR>",
-                desc = "[E]xplorer Open",
+                desc = "[E]xplorer Oil",
                 mode = "n",
                 icon = { icon = "󰙅", color = "green" },
             },
@@ -105,12 +112,18 @@ return {
             -- leader + c also works with any buffer, but it does not save it.
             {
                 "<leader>t",
-                ":term<CR>i",
+                ":ToggleTerm<CR>",
                 desc = "[T]erminal Open",
                 icon = { icon = "", color = "green" },
             },
             {
-                "<C-c>",
+                "kj",
+                "<C-\\><C-N>",
+                desc = "Exit Terminal Insert Mode",
+                mode = "t",
+            },
+            {
+                "jk",
                 "<C-\\><C-N>",
                 desc = "Exit Terminal Insert Mode",
                 mode = "t",
@@ -462,6 +475,11 @@ return {
                 "<leader>rr",
                 ":w<CR>:RunCode<CR>",
                 desc = "Run Code",
+            },
+            {
+                "<leader>rR",
+                ":w<CR>:RunCode ",
+                desc = "Run Code with Arguments",
             },
             {
                 "<leader>rf",
