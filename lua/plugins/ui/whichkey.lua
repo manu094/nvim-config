@@ -71,14 +71,21 @@ return {
         -- Basic Neovim keymaps
         wk.add({
             {
-                "<leader>e",
+                "<leader>w",
+                "<CMD>wa<CR>",
+                desc = "[W]rite all",
+                mode = "n",
+                icon = { icon = "", color = "green" },
+            },
+            {
+                "<leader>E",
                 "<CMD>Neotree<CR>",
                 desc = "[E]xplorer Tree",
                 mode = "n",
                 icon = { icon = "󰙅", color = "green" },
             },
             {
-                "<leader>E",
+                "<leader>e",
                 "<CMD>Oil<CR>",
                 desc = "[E]xplorer Oil",
                 mode = "n",
@@ -111,7 +118,7 @@ return {
             -- to close the terminal window, leader + c.
             -- leader + c also works with any buffer, but it does not save it.
             {
-                "<leader>t",
+                "<leader>T",
                 ":ToggleTerm<CR>",
                 desc = "[T]erminal Open",
                 icon = { icon = "", color = "green" },
@@ -427,43 +434,43 @@ return {
             },
             -- Go to specific buffers
             {
-                "<leader>b1",
+                "<leader>b0",
                 "<Cmd>BufferGoto 1<CR>",
             },
             {
-                "<leader>b2",
+                "<leader>b1",
                 "<Cmd>BufferGoto 2<CR>",
             },
             {
-                "<leader>b3",
+                "<leader>b2",
                 "<Cmd>BufferGoto 3<CR>",
             },
             {
-                "<leader>b4",
+                "<leader>b3",
                 "<Cmd>BufferGoto 4<CR>",
             },
             {
-                "<leader>b5",
+                "<leader>b4",
                 "<Cmd>BufferGoto 5<CR>",
             },
             {
-                "<leader>b6",
+                "<leader>b5",
                 "<Cmd>BufferGoto 6<CR>",
             },
             {
-                "<leader>b7",
+                "<leader>b6",
                 "<Cmd>BufferGoto 7<CR>",
             },
             {
-                "<leader>b8",
+                "<leader>b7",
                 "<Cmd>BufferGoto 8<CR>",
             },
             {
-                "<leader>b9",
+                "<leader>b8",
                 "<Cmd>BufferGoto 9<CR>",
             },
             {
-                "<leader>b0",
+                "<leader>b9",
                 "<Cmd>BufferLast<CR>",
             },
         })
