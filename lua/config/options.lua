@@ -38,10 +38,10 @@ local options = {
     breakindent = true,      -- Have wrapped lines follow indentation
     linebreak = true,
     wrap = true,             -- DON'T display lines as one long line
-    textwidth = 89,
+    textwidth = 69,
     formatoptions = "tcql",
-    columns = 89,
-    colorcolumn = "90",
+    columns = 69,
+    colorcolumn = "70",
 
     scrolloff = 10,          -- is one of my fav
     sidescrolloff = 8,
