@@ -64,27 +64,7 @@ return {
 			insert_at_end = true,
 		},
 	},
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
 	"mong8se/actually.nvim",
-	{
-		"stevearc/oil.nvim",
-		config = function()
-			require("oil").setup({
-				columns = { "icon" },
-				keymaps = {
-					["<C-h>"] = false,
-					["<M-h>"] = "actions.select_split",
-				},
-				view_options = {
-					show_hidden = true,
-				},
-			})
-		end,
-	},
     -- Typst Preview
 	{
 		"chomosuke/typst-preview.nvim",
