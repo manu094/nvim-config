@@ -117,12 +117,12 @@ return {
             -- to exit terminal-insert mode, press CTRL + c.
             -- to close the terminal window, leader + c.
             -- leader + c also works with any buffer, but it does not save it.
-            {
-                "<leader>T",
-                ":ToggleTerm<CR>",
-                desc = "[T]erminal Open",
-                icon = { icon = "", color = "green" },
-            },
+            -- {
+            --     "<leader>T",
+            --     ":ToggleTerm<CR>",
+            --     desc = "[T]erminal Open",
+            --     icon = { icon = "", color = "green" },
+            -- },
             {
                 "kj",
                 "<C-\\><C-N>",
@@ -162,6 +162,16 @@ return {
             },
         })
 
+        wk.add({
+            { "<leader>t", group = "[T]ext...", icon = { icon = "A", color = "grey" } },
+            {
+                "<leader>tm",
+                "<CMD>Markview Toggle<CR>",
+                desc = "[M]arkdown Preview",
+                mode = "n",
+            }
+        })
+
         -- Telescope / file switching keymaps
         wk.add({
             { "<leader>f", group = "[F]ind...", icon = { icon = "", color = "brown" } },
@@ -169,6 +179,12 @@ return {
                 "<leader>ff",
                 "<CMD>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>",
                 desc = "[F]ile Find",
+                mode = "n",
+            },
+            {
+                "<leader>fr",
+                "<CMD>GrugFar<CR>",
+                desc = "Find and [R]eplace",
                 mode = "n",
             },
             {

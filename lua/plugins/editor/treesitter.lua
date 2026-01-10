@@ -1,9 +1,5 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-        "p00f/nvim-ts-rainbow",
-        "nvim-treesitter/playground",
-    },
     config = function()
         local M = {}
         function M.config()
