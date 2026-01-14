@@ -91,12 +91,12 @@ return {
                 mode = "n",
                 icon = { icon = "󰙅", color = "green" },
             },
-            {
-                "<leader>s",
-                ":w<CR>:luafile %<CR>",
-                desc = "[S]ource Init.lua",
-                icon = { icon = "", color = "orange" },
-            },
+            -- {
+            --     "<leader>s",
+            --     ":w<CR>:luafile %<CR>",
+            --     desc = "[S]ource Init.lua",
+            --     icon = { icon = "", color = "orange" },
+            -- },
             {
                 "<leader>k",
                 "<C-w>+",
@@ -159,6 +159,58 @@ return {
                 desc = "[C]olorschemes",
                 mode = "n",
                 icon = { icon = "", color = "pink" },
+            },
+        })
+
+        wk.add({
+            { "<leader>s", group = "[S]pell...(Z for additional binds)", icon = { icon = "X", color = "red" } },
+            {
+                "<leader>se",
+                "<CMD>setlocal spell spelllang=en_us<CR>",
+                desc = "[S]pell check EN",
+                mode = "n",
+            },
+            {
+                "<leader>sf",
+                "<CMD>setlocal spell spelllang=fr<CR>",
+                desc = "[S]pell check FR",
+                mode = "n",
+            },
+            {
+                "<leader>sl",
+                "]s",
+                desc = "Nest suggestion",
+                mode = "n",
+            },
+            {
+                "<leader>sh",
+                "[s",
+                desc = "Previous suggestion",
+                mode = "n",
+            },
+            {
+                "<leader>ss",
+                "z=",
+                desc = "[S]how [S]uggestions",
+                mode = "n",
+            },
+            {
+                "<leader>sg",
+                "zg",
+                desc = "Mark as [G]ood",
+                mode = "n",
+            },
+            {
+                "<leader>sw",
+                "zw",
+                desc = "Mark as [W]rong",
+                mode = "n",
+            },
+            {
+                "<leader>sx",
+                "<CMD>runtime spell/cleanadd.vim<CR><CMD>set spell spelllang=<CR>",
+                desc = "Stop spell check",
+                mode = "n",
             },
         })
 
