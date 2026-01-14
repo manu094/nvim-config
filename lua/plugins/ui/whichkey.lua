@@ -169,6 +169,12 @@ return {
                 "<CMD>Markview Toggle<CR>",
                 desc = "[M]arkdown Preview",
                 mode = "n",
+            },
+            {
+                "<leader>tt",
+                "<CMD>TypstPreview<CR>",
+                desc = "[T]ypst Preview",
+                mode = "n",
             }
         })
 
