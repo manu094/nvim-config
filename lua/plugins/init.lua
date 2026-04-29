@@ -34,6 +34,8 @@ return {
 	"sainnhe/gruvbox-material", -- Incredibly beautiful
 	"AlexvZyl/nordic.nvim", -- Trying things out
 	"rebelot/kanagawa.nvim", -- Top rated
+	"EdenEast/nightfox.nvim",
+	"catppuccin/nvim",
 
 	-- Debugger
 	"mfussenegger/nvim-dap",
