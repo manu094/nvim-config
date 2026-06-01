@@ -35,7 +35,7 @@ return {
 	"AlexvZyl/nordic.nvim", -- Trying things out
 	"rebelot/kanagawa.nvim", -- Top rated
 	"EdenEast/nightfox.nvim",
-	"catppuccin/nvim",
+	-- catppuccin configured in plugins/ui/auto-dark-mode.lua
 
 	-- Debugger
 	"mfussenegger/nvim-dap",
