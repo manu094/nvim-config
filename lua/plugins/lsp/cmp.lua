@@ -7,7 +7,6 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
         "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-nvim-lua",
 
@@ -27,11 +26,6 @@ return {
         end
 
         require("luasnip/loaders/from_vscode").lazy_load()
-
-        local check_backspace = function()
-            local col = vim.fn.col "." - 1
-            return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-        end
 
         --   פּ ﯟ   some other good icons
         local kind_icons = {
@@ -80,18 +74,13 @@ return {
                     i = cmp.mapping.abort(),
                     c = cmp.mapping.close(),
                 },
-                -- Accept currently selected item. If none selected, `select` first item.
-                -- Set `select` to `false` to only confirm explicitly selected items.
-                ["<CR>"] = cmp.mapping.confirm { select = true },
+                -- Only confirm explicitly selected items (never auto-pick first entry)
+                ["<CR>"] = cmp.mapping.confirm { select = false },
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                    elseif luasnip.expandable() then
-                        luasnip.expand()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
-                    elseif check_backspace() then
-                        fallback()
+                    elseif luasnip.locally_jumpable(1) then
+                        luasnip.jump(1)
                     else
                         fallback()
                     end
@@ -102,7 +91,7 @@ return {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
+                    elseif luasnip.locally_jumpable(-1) then
                         luasnip.jump(-1)
                     else
                         fallback()
@@ -134,10 +123,6 @@ return {
                 { name = "luasnip" },
                 { name = "buffer" },
                 { name = "path" },
-            },
-            confirm_opts = {
-                behavior = cmp.ConfirmBehavior.Replace,
-                select = false,
             },
             window = {
                 documentation = cmp.config.window.bordered()

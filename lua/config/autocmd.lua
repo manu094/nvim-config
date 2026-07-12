@@ -14,7 +14,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		-- Disable code-style indentation
 		vim.opt_local.smartindent = false
-		vim.opt_local.cindent = false
 		vim.opt_local.indentexpr = ""
         -- Add automatic formatting to indent as text is typed
         vim.opt_local.formatoptions = "tcqla"

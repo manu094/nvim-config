@@ -67,6 +67,56 @@ return {
                 },
             },
         })
+        -- General keymaps
+        wk.add({
+            -- Move by visual lines
+            { "j", "gj", mode = "n" },
+            { "k", "gk", mode = "n" },
+            -- Window navigation
+            { "<C-h>", "<C-w>h", desc = "Window Left",  mode = "n" },
+            { "<C-j>", "<C-w>j", desc = "Window Down",  mode = "n" },
+            { "<C-k>", "<C-w>k", desc = "Window Up",    mode = "n" },
+            { "<C-l>", "<C-w>l", desc = "Window Right", mode = "n" },
+            -- Centered scrolling
+            { "<C-u>", "<C-u>zz", mode = "n" },
+            { "<C-d>", "<C-d>zz", mode = "n" },
+            { "n", "nzz", mode = "n" },
+            { "N", "Nzz", mode = "n" },
+            -- Window resize
+            { "<C-Up>",    ":resize +2<CR>",          desc = "Resize Window Up",    mode = "n" },
+            { "<C-Down>",  ":resize -2<CR>",          desc = "Resize Window Down",  mode = "n" },
+            { "<C-Left>",  ":vertical resize -2<CR>", desc = "Resize Window Left",  mode = "n" },
+            { "<C-Right>", ":vertical resize +2<CR>", desc = "Resize Window Right", mode = "n" },
+            -- Buffer navigation
+            { "<S-l>", ":BufferNext<CR>",     mode = "n" },
+            { "<S-h>", ":BufferPrevious<CR>", mode = "n" },
+            -- Insert mode escape
+            { "jk", "<ESC>", mode = "i" },
+            { "kj", "<ESC>", mode = "i" },
+            { "<C-s>", function() vim.lsp.buf.signature_help() end, desc = "Signature Help", mode = "i" },
+            -- Visual mode
+            { "<",    "<gv",    mode = "v" },
+            { ">",    ">gv",    mode = "v" },
+            { "  ",   "<ESC>",  mode = "v" },
+            { "<A-j>", ":m .+1<CR>==", mode = "v" },
+            { "<A-k>", ":m .-2<CR>==", mode = "v" },
+            { "<A-h>", "<gv",           mode = "v" },
+            { "<A-l>", ">gv",           mode = "v" },
+            { "p",    '"_dP',   mode = "v" },
+            -- Visual block mode
+            { "J",     ":move '>+1<CR>gv-gv", mode = "x" },
+            { "K",     ":move '<-2<CR>gv-gv", mode = "x" },
+            { "<A-j>", ":move '>+1<CR>gv-gv", mode = "x" },
+            { "<A-k>", ":move '<-2<CR>gv-gv", mode = "x" },
+            -- Terminal
+            { "jk",    "<C-\\><C-N>",          desc = "Exit Terminal Mode", mode = "t" },
+            { "kj",    "<C-\\><C-N>",          desc = "Exit Terminal Mode", mode = "t" },
+            { "<Esc>", "<C-\\><C-n>",          mode = "t" },
+            { "<C-h>", "<C-\\><C-N><C-w>h",   mode = "t" },
+            { "<C-j>", "<C-\\><C-N><C-w>j",   mode = "t" },
+            { "<C-k>", "<C-\\><C-N><C-w>k",   mode = "t" },
+            { "<C-l>", "<C-\\><C-N><C-w>l",   mode = "t" },
+        })
 
         -- Basic Neovim keymaps
         wk.add({
@@ -109,32 +159,7 @@ return {
                 desc = "Decrease Window Size",
                 icon = { icon = "", color = "white" },
             },
-            -- Quick rundown of terminal mode mapppings:
-            -- in normal mode, pressing leader + t opens the terminal.
-            --  note that it is also opened from the "compile and run" command.
-            -- In general, mappings that open the terminal should enter terminal-insert
-            -- mode to save time.
-            -- to exit terminal-insert mode, press CTRL + c.
-            -- to close the terminal window, leader + c.
-            -- leader + c also works with any buffer, but it does not save it.
-            -- {
-            --     "<leader>T",
-            --     ":ToggleTerm<CR>",
-            --     desc = "[T]erminal Open",
-            --     icon = { icon = "", color = "green" },
-            -- },
-            {
-                "kj",
-                "<C-\\><C-N>",
-                desc = "Exit Terminal Insert Mode",
-                mode = "t",
-            },
-            {
-                "jk",
-                "<C-\\><C-N>",
-                desc = "Exit Terminal Insert Mode",
-                mode = "t",
-            },
+
         })
 
         -- Visual changes
@@ -306,6 +331,30 @@ return {
                 desc = "Toggle Git [B]lame",
                 icon = { icon = "", color = "orange"},
             },
+            {
+                "<leader>gd",
+                "<CMD>DiffviewOpen<CR>",
+                desc = "Diff [D]iff View",
+                icon = { icon = "", color = "orange" },
+            },
+            {
+                "<leader>gf",
+                "<CMD>DiffviewFileHistory %<CR>",
+                desc = "File [F]istory",
+                icon = { icon = "", color = "orange" },
+            },
+            {
+                "<leader>gH",
+                "<CMD>DiffviewFileHistory<CR>",
+                desc = "Repo [H]istory",
+                icon = { icon = "", color = "orange" },
+            },
+            {
+                "<leader>gx",
+                "<CMD>DiffviewClose<CR>",
+                desc = "Close Diffview",
+                icon = { icon = "", color = "orange" },
+            },
         })
 
         -- LSP keymaps
@@ -379,74 +428,68 @@ return {
                 desc = "Code [A]ction",
                 icon = { icon = "", color = "teal" },
             },
+            {
+                "<leader>ln",
+                "<CMD>lua vim.lsp.buf.rename()<CR>",
+                desc = "Re[n]ame Symbol",
+                icon = { icon = "󰑕", color = "teal" },
+            },
+            {
+                "K",
+                "<CMD>lua vim.lsp.buf.hover()<CR>",
+                desc = "Hover Documentation",
+                mode = "n",
+            },
         })
 
         -- Debugging keymaps
-        local dap = require("dap")
-        local dapui = require("dapui")
         wk.add({
             { "<leader>d", group = "Debugging...", icon = { icon = "", color = "red" } },
             {
                 "<leader>dd",
-                function()
-                    dap.toggle_breakpoint()
-                end,
+                function() require("dap").toggle_breakpoint() end,
                 desc = "Toggle Breakpoint",
                 icon = { icon = "🔴", color = "red" },
             },
             {
                 "<leader>dc",
-                function()
-                    dap.continue()
-                end,
+                function() require("dap").continue() end,
                 desc = "Continue Debugging",
                 icon = { icon = "", color = "green" },
             },
             {
                 "<leader>du",
-                function()
-                    dapui.toggle()
-                end,
+                function() require("dapui").toggle() end,
                 desc = "Toggle Dap UI",
                 icon = { icon = "", color = "pink" },
             },
             {
                 "<leader>dj",
-                function()
-                    dap.step_into()
-                end,
+                function() require("dap").step_into() end,
                 desc = "Step Into",
                 icon = { icon = "", color = "blue" },
             },
             {
                 "<leader>dk",
-                function()
-                    dap.step_out()
-                end,
+                function() require("dap").step_out() end,
                 desc = "Step Out",
                 icon = { icon = "", color = "blue" },
             },
             {
                 "<leader>dl",
-                function()
-                    dap.step_over()
-                end,
+                function() require("dap").step_over() end,
                 desc = "Step Over",
                 icon = { icon = "", color = "blue" },
             },
             {
                 "<leader>dh",
-                function()
-                    dap.step_back()
-                end,
+                function() require("dap").step_back() end,
                 desc = "Step Back",
                 icon = { icon = "", color = "blue" },
             },
             {
                 "<leader>ds",
-                function()
-                    dap.repl.open()
-                end,
+                function() require("dap").repl.open() end,
                 desc = "Inspect State",
             },
             {
@@ -579,6 +622,26 @@ return {
             },
         })
 
+
+        -- Sessions
+        wk.add({
+            { "<leader>q", group = "[Q]uit / Sessions...", icon = { icon = "", color = "purple" } },
+            {
+                "<leader>qs",
+                function() require("persistence").load() end,
+                desc = "Restore [S]ession",
+            },
+            {
+                "<leader>ql",
+                function() require("persistence").load({ last = true }) end,
+                desc = "Restore [L]ast Session",
+            },
+            {
+                "<leader>qd",
+                function() require("persistence").stop() end,
+                desc = "[D]on't Save Session",
+            },
+        })
 
         -- Help
         wk.add({

@@ -13,7 +13,6 @@ local options = {
     showtabline = 2,                       -- always show tabs /!\ SET TO 2 FOR BARBAR.NVIM TO WORK
     smartcase = true,                      -- smart case
     smartindent = true,                    -- make indenting smarter again
-    cindent = true,
     splitbelow = true,                     -- force all horizontal splits to go below current window
     splitright = true,                     -- force all vertical splits to go to the right of current window
     swapfile = false,                      -- creates a swapfile
@@ -40,18 +39,11 @@ local options = {
     wrap = true,             -- DON'T display lines as one long line
     textwidth = 69,
     formatoptions = "tcql",
-    columns = 69,
     colorcolumn = "70",
 
     scrolloff = 10,          -- is one of my fav
     sidescrolloff = 8,
     guifont = "monospace:h17", -- the font used in graphical neovim applications
-
-    --foldmethod = "indent",                 -- better setting exists as part of the UFO plugin
-    foldcolumn = "1",
-    foldlevel = 99,
-    foldlevelstart = 99,
-    foldenable = true,
 
     timeout = true,
     autowrite = true,
