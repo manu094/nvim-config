@@ -57,7 +57,33 @@ return {
                         },
                     },
                 },
+                -- Typst: completion for labels/refs/bib keys, PDF exported on save
+                tinymist = {
+                    settings = {
+                        exportPdf = "onSave",
+                        formatterMode = "typstyle",
+                    },
+                },
+                -- LanguageTool grammar checker for prose (French).
+                -- Dictionary, disabled rules (incl. FR_SPELLING_RULE, since Neovim's
+                -- spell handles spelling) and false positives live in spell/ltex/,
+                -- managed by ltex_extra.nvim
+                ltex_plus = {
+                    filetypes = { "markdown", "typst", "gitcommit", "text" },
+                    settings = {
+                        ltex = {
+                            language = "fr",
+                        },
+                    },
+                },
             }
+
+            -- mason-lspconfig v2 starts servers with vim.lsp.enable(), which does not
+            -- go through lspconfig[...].setup(), so register defaults and overrides here
+            vim.lsp.config("*", server_config)
+            for server_name, override in pairs(server_overrides) do
+                vim.lsp.config(server_name, override)
+            end
 
             local function setup_server(server_name)
                 local config = vim.tbl_deep_extend("force", server_config, server_overrides[server_name] or {})

@@ -5,13 +5,14 @@ return {
     "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
     {
         "tpope/vim-dispatch",
-        opt = true,
         cmd = { "Dispatch", "Make", "Focus", "Start" },
     }, -- Some async stuff
     {
         "iamcco/markdown-preview.nvim",
-        run = "cd app && yarn install",
-        cmd = "MarkdownPreview",
+        cmd = { "MarkdownPreview", "MarkdownPreviewToggle", "MarkdownPreviewStop" },
+        ft = "markdown",
+        -- Downloads the prebuilt preview server (no node/yarn needed)
+        build = "cd app && ./install.sh",
     }, -- Previews markdown in browser
     "andymass/vim-matchup", -- Enhances the "%" command
     "ThePrimeagen/vim-be-good",
@@ -81,8 +82,12 @@ return {
     -- Typst Preview
     {
         "chomosuke/typst-preview.nvim",
-        lazy = false, -- or ft = 'typst'
+        ft = "typst",
         version = "1.*",
-        opts = {},
+        opts = {
+            follow_cursor = true, -- scroll the preview along with the cursor
+            -- Reuse Mason's tinymist instead of downloading a second copy
+            dependencies_bin = { tinymist = "tinymist" },
+        },
     },
 }

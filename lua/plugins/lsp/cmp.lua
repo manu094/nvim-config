@@ -26,6 +26,8 @@ return {
         end
 
         require("luasnip/loaders/from_vscode").lazy_load()
+        -- Own snippets: snippets/<filetype>.lua
+        require("luasnip.loaders.from_lua").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
 
         --   פּ ﯟ   some other good icons
         local kind_icons = {

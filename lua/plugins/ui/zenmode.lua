@@ -9,7 +9,13 @@ return {
                 -- * an absolute number of cells when > 1
                 -- * a percentage of the width / height of the editor when <= 1
                 -- * a function that returns the width or the height
-                width = 0.6, -- width of the Zen window
+                -- fixed text column for prose, 60% of the editor for code
+                width = function()
+                    if vim.tbl_contains({ "markdown", "typst" }, vim.bo.filetype) then
+                        return 82
+                    end
+                    return math.floor(vim.o.columns * 0.6)
+                end,
                 height = 1,  -- height of the Zen window
                 -- by default, no options are changed for the Zen window
                 -- uncomment any of the options below, or add other vim.wo options you want to apply
@@ -104,6 +110,10 @@ return {
                 "method",
                 "table",
                 "if_statement",
+                -- prose (markdown; typst has no paragraph node)
+                "paragraph",
+                "list",
+                "fenced_code_block",
             },
             exclude = {}, -- exclude these filetypes
         },

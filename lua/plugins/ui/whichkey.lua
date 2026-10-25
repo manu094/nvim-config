@@ -197,7 +197,7 @@ return {
             },
             {
                 "<leader>sf",
-                "<CMD>setlocal spell spelllang=fr<CR>",
+                "<CMD>setlocal spell spelllang=fr,frapos<CR>",
                 desc = "[S]pell check FR",
                 mode = "n",
             },
@@ -249,10 +249,34 @@ return {
             },
             {
                 "<leader>tt",
-                "<CMD>TypstPreview<CR>",
+                "<CMD>TypstPreviewToggle<CR>",
                 desc = "[T]ypst Preview",
                 mode = "n",
-            }
+            },
+            {
+                "<leader>ts",
+                "<CMD>TypstPreviewSyncCursor<CR>",
+                desc = "[S]ync Typst Preview to cursor",
+                mode = "n",
+            },
+            {
+                "<leader>tb",
+                "<CMD>MarkdownPreviewToggle<CR>",
+                desc = "Markdown [B]rowser Preview",
+                mode = "n",
+            },
+            {
+                "<leader>to",
+                "<CMD>AerialToggle<CR>",
+                desc = "Document [O]utline",
+                mode = "n",
+            },
+            {
+                "<leader>tn",
+                "<CMD>AerialNavToggle<CR>",
+                desc = "Outline [N]avigation popup",
+                mode = "n",
+            },
         })
 
         -- Telescope / file switching keymaps

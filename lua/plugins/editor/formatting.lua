@@ -62,9 +62,10 @@ return {
         local conform = require("conform")
 
         conform.setup({
-            formatter_by_ft = {
+            formatters_by_ft = {
                 c = { "clang-format" },
                 lua = { "stylua" },
+                typst = { "typstyle" },
             },
             format_on_save = {
                 lsp_format = "never",
@@ -72,10 +73,10 @@ return {
                 timeout_ms = 500,
             },
             formatters = {
-                clang_format = {
-                    command = "clang-format",
-                    prepend_args = { "-style='{BasedOnStyle: gnu, IndentWidth: 4}'" },
-                }
+                -- Key must match the formatter name; no shell, so no extra quotes
+                ["clang-format"] = {
+                    prepend_args = { "-style={BasedOnStyle: gnu, IndentWidth: 4}" },
+                },
             }
         })
     end
