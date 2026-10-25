@@ -58,6 +58,9 @@ return {
         -- find more here: https://www.nerdfonts.com/cheat-sheet
 
         cmp.setup {
+            completion = {
+                completeopt = "menu,menuone,noinsert",
+            },
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body) -- For `luasnip` users.
