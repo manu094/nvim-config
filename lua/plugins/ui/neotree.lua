@@ -119,6 +119,12 @@ return {
 			"nvim-neo-tree/neo-tree.nvim", -- makes sure that this loads after Neo-tree.
 		},
 		config = function()
+			-- Its log timer asserts that the log file exists, which it doesn't until
+			-- something is logged: create it so the error doesn't pop up every 30s
+			local log = vim.fs.joinpath(vim.fn.stdpath("cache"), "lsp-file-operations.log")
+			if not vim.uv.fs_stat(log) then
+				vim.fn.writefile({}, log)
+			end
 			require("lsp-file-operations").setup()
 		end,
 	},

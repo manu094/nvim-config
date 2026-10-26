@@ -1,2 +1,3 @@
 {"rule":"AUX_AVOIR_VCONJ","sentence":"^\\QEn 2037, Google Quantum AI commercialise le premier ordinateur quantique portable.\\E$"}
 {"rule":"AUX_AVOIR_VCONJ","sentence":"^\\QEn 2037, Google Quantum AI commercialise le premier ordinateur quantique portable, le qPad.\\E$"}
+{"rule":"PAS_DE_VIRGULE","sentence":"^\\QEt voilà, plus qu'à l'essayer !, s'exclama l'homme en blouse blanche.\\E$"}
